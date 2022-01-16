@@ -10,7 +10,7 @@
           </li>
         </transition-group>
       </div>
-      <div v-else>Yapılacak bir şey kalmadıı 🎉</div>
+      <div v-else>Tüm görevler yapıldıı 🎉</div>
     </transition>
   </div>
 </template>

@@ -1,5 +1,7 @@
 # vue-animations
 
+https://pensive-lovelace-1e89c0.netlify.app/
+
 ## Project setup
 ```
 npm install

@@ -2,16 +2,16 @@
   <div class="todos">
     <input type="text" v-model="newTodo" @keypress.enter="addTodo" />
 
-    <div v-if="todos.length">
-      <transition-group tag="ul" name="list" appear>
-        <li v-for="todo in todos" :key="todo.id" @click="deleteTodo(todo.id)">
-          {{ todo.text }}
-        </li>
-      </transition-group>
-    </div>
-    <div v-else>
-        Yapılacak bir şey kalmadıı 🎉
-    </div>
+    <transition name="switch" mode="out-in">
+      <div v-if="todos.length">
+        <transition-group tag="ul" name="list" appear>
+          <li v-for="todo in todos" :key="todo.id" @click="deleteTodo(todo.id)">
+            {{ todo.text }}
+          </li>
+        </transition-group>
+      </div>
+      <div v-else>Yapılacak bir şey kalmadıı 🎉</div>
+    </transition>
   </div>
 </template>
 
@@ -85,17 +85,28 @@ input {
   transform: scale(1);
 }
 .list-enter-active {
-  transition: all .4s ease;
+  transition: all 0.4s ease;
 }
 .list-leave-to {
   opacity: 0;
-   transform: scale(0.6);
+  transform: scale(0.6);
 }
 .list-leave-active {
-  transition: all .4s ease;
+  transition: all 0.4s ease;
   position: absolute;
 }
 .list-move {
-  transition: all .3s ease;
+  transition: all 0.3s ease;
 }
+
+.switch-enter-from,
+.switch-leave-to {
+  opacity: 0;
+  transform: translateY(20px);
+}
+.switch-enter-active,
+.switch-leave-active {
+  transition: all .5s ease ;
+}
+
 </style>
